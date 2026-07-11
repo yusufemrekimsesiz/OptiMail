@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:OptiMail.ViewModels"
+             x:Class="OptiMail.SettingsPage"
+             x:DataType="vm:SettingsViewModel"
+             Title="Ayarlar"
+             BackgroundColor="{AppThemeBinding Light=#F7F7FA, Dark=#151517}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,24" Spacing="20">
+
+            <Label Text="Bağlantı Bilgileri"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+            <Label Text="Bu bilgiler cihazında şifreli olarak saklanır, hiçbir sunucuya gönderilmez."
+                   FontSize="12"
+                   TextColor="{AppThemeBinding Light=#8A8A8E, Dark=#9A9A9E}" />
+
+            
+            <Border StrokeShape="RoundRectangle 14"
+                    Stroke="{AppThemeBinding Light=#ECECEF, Dark=#2E2E32}"
+                    StrokeThickness="1"
+                    Padding="16,10"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F22}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="GMAIL ADRESİ"
+                           FontSize="10"
+                           FontAttributes="Bold"
+                           CharacterSpacing="0.5"
+                           TextColor="{AppThemeBinding Light=#B0B0B5, Dark=#6E6E72}" />
+                    <Entry Text="{Binding GmailAddress}"
+                           Placeholder="ornek@gmail.com"
+                           Keyboard="Email"
+                           FontSize="15"
+                           TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+                </VerticalStackLayout>
+            </Border>
+
+            
+            <Border StrokeShape="RoundRectangle 14"
+                    Stroke="{AppThemeBinding Light=#ECECEF, Dark=#2E2E32}"
+                    StrokeThickness="1"
+                    Padding="16,10"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F22}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="GMAIL UYGULAMA ŞİFRESİ"
+                           FontSize="10"
+                           FontAttributes="Bold"
+                           CharacterSpacing="0.5"
+                           TextColor="{AppThemeBinding Light=#B0B0B5, Dark=#6E6E72}" />
+                    <Entry Text="{Binding GmailAppPassword}"
+                           Placeholder="16 haneli uygulama şifresi"
+                           IsPassword="True"
+                           FontSize="15"
+                           TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+                </VerticalStackLayout>
+            </Border>
+
+           
+            <Border StrokeShape="RoundRectangle 14"
+                    Stroke="{AppThemeBinding Light=#ECECEF, Dark=#2E2E32}"
+                    StrokeThickness="1"
+                    Padding="16,10"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#1F1F22}">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="GEMİNİ API ANAHTARI"
+                           FontSize="10"
+                           FontAttributes="Bold"
+                           CharacterSpacing="0.5"
+                           TextColor="{AppThemeBinding Light=#B0B0B5, Dark=#6E6E72}" />
+                    <Entry Text="{Binding GeminiApiKey}"
+                           Placeholder="AIzaSy..."
+                           IsPassword="True"
+                           FontSize="15"
+                           TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Kaydet"
+                    Command="{Binding SaveCommand}"
+                    CornerRadius="26"
+                    HeightRequest="52"
+                    FontAttributes="Bold"
+                    BackgroundColor="#4A6FE3"
+                    TextColor="White"
+                    Margin="0,10,0,0" />
+
+            <Label Text="{Binding StatusMessage}"
+                   FontSize="13"
+                   TextColor="{AppThemeBinding Light=#8A8A8E, Dark=#9A9A9E}"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
